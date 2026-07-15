@@ -10,7 +10,6 @@ for i in range(qtd_alunos):
     if nota >= 7:
         aprovados += 1
     elif nota >= 5:
-        reprovados_recuperacao = True  # apenas ilustrativo, veja nota abaixo
         recuperacao += 1
     else:
         reprovados += 1
