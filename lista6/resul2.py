@@ -12,12 +12,24 @@
 ##   uma das questões tiver nota máxima (25).
 ## - "Excelente" se a soma for 90 ou mais, e nenhuma nota for menor que 20.
 ## - "Desempenho indefinido" se nenhuma condição acima se aplicar.
-##
-## Entrada: quatro números inteiros q1, q2, q3, q4.
-## Saída: string representando o desempenho do aluno.
-##
-## Exemplo 1: q1=20, q2=25, q3=20, q4=25  -> "Excelente"
-## Exemplo 2: q1=25, q2=25, q3=25, q4=10  -> "Bom"
-## Exemplo 3: q1=10, q2=15, q3=20, q4=5   -> "Regular"
-## Exemplo 4: q1=25, q2=25, q3=25, q4=26  -> "Inválido"
-## Exemplo 5: q1=0, q2=25, q3=25, q4=25   -> "Reprovado"
+
+notas = []
+
+for i in range(4):
+    nota = int(input(f"Digite a nota da questão {i+1}: "))
+    notas.append(nota)
+
+soma = sum(notas)
+
+if any(nota < 0 or nota > 25 for nota in notas):
+    print("Inválido")
+elif soma >= 90 and min(notas) >= 20:
+    print("Excelente")
+elif 75 <= soma <= 89 and 25 in notas:
+    print("Bom")
+elif 50 <= soma <= 74 and 0 not in notas:
+    print("Regular")
+elif soma < 50:
+    print("Reprovado")
+else:
+    print("Desempenho indefinido")
