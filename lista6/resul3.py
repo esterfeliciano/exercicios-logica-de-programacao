@@ -39,3 +39,30 @@
 ##            -> "Alto"
 ## Exemplo 5: idade=17, salario_mensal=2.0, tempo_emprego=6, possui_dividas=false
 ##            -> "Dados inválidos"
+
+idade =int(input('Digite as sua idade: '))
+salario = float(input("Digite o salário (em milhares, ex: 2 para 2000): ")) * 1000
+tempo =int(input('Quantos meses você têm de trabalho?'))
+dividas = input("Você possuí dividas? (s/n): ").lower().strip()
+
+if dividas in ('s', 'sim', 'yes', 'y', 't', 'true'):
+    dividas = True
+else:
+    dividas = False
+## Dados inválidos
+if idade < 18 or idade > 100 and salario <= 0 and tempo <= 0:
+    print('Dados inválidos para fazer um empréstimo!')
+elif dividas == True and tempo < 12:
+    print('O risco de fazer um empréstimo é alto!')
+elif salario <= 2000 and tempo < 6:
+    print('O risco de fazer um emprétimo é alto!')
+elif idade <= 18 or idade <= 25 and salario <= 3000:
+    print('O risco de fazer um empréstimo é moderado.')
+elif idade >= 60 and tempo < 24:
+    ('O risco de fazer empréstimo  é moderado')
+elif dividas == True and tempo > 36:
+    print('O risco de fazer um empréstimo é moderado.')
+elif salario >= 5000 and tempo >= 36 and dividas == False:
+     print('O risco de fazer um empréstimo é baixo.')
+else:
+    print('Risco indefinido.')
